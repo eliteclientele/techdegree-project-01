@@ -13,35 +13,35 @@ var quotes = [
         "quote": "Don't cry because it's over, smile because it happened.",
         "source": "Dr. Suess",
         "citation": "Cat and The Hat",
-        "year": 1967,
-        "tags": []
+        "year": "1967",
+        "tags": ['children', 'author']
     },
     {
         "quote": "I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.",
         "source": "Marilyn Monroe",
         "citation": "Just Marilyn",
-        "year": 1959,
-        "tags": []
+        "year": "1959",
+        "tags": ['model', 'JFK', 'actress']
     },
     {
         "quote": "Be yourself; everyone else is already taken.",
         "source": "Oscar Wilde",
         "citation": "Amazing Observations",
-        "year": 1873,
+        "year": "1873",
         "tags": []
     },
     {
         "quote": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
         "source": "Albert Einstein",
         "citation": "Theory of Humanity",
-        "year": 1933,
-        "tags": []
+        "year": "",
+        "tags": ['scientist', 'genius', 'relativity']
     },
     {
         "quote": "You only live once, but if you do it right, once is enough.",
         "source": "Mae West",
         "citation": "",
-        "year": 1972,
+        "year": "1972",
         "tags": []
     }
 ];
@@ -67,11 +67,28 @@ function printQuote() {
     var sourceParagraph = document.querySelector('.source');
     sourceParagraph.innerHTML = getQuote.source;
 
-    var citationSpan = document.getElementsByClassName('citation');
-    if (citationSpan !== null) {
-        citationSpan.innerHTML = getQuote.citation;
+    if (getQuote.citation) {
+        sourceParagraph.innerHTML += `<span class="citation"> ${getQuote.citation}</span>`;
     }
-    console.log(citationSpan);
+    
+    if (getQuote.year) {
+        sourceParagraph.innerHTML += `<span class="year"> ${getQuote.year}</span>`;
+    }
+
+    var quoteBox = document.getElementById('quote-box');
+    var tagDiv = document.createElement('div');
+    quoteBox.appendChild(tagDiv);
+    if (getQuote.tags.length > 0) {
+        var getTags = getQuote["tags"];
+        for (var val in getTags) {
+            tagDiv.innerHTML += `<span class="tag">${getTags[val]} </span>`;
+        }
+            
+    } 
+
+    
+    
+
     var yearSpan = document.getElementsByClassName('year');
     yearSpan.innerHTML = getQuote.year;
 

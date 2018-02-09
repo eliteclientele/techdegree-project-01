@@ -77,6 +77,11 @@ body {
 #loadQuote:focus {
   outline: none;
 }
+.tag {
+  text-align: center;
+  padding: 5px;
+  background: rgba(255,255,255,.25)
+}
 
 @media (max-width: 420px) {
   .quote {
