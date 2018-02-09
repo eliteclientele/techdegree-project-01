@@ -1,7 +1,7 @@
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
+window.setInterval(printQuote, 1000 * 30)
 // create an array to hold the data for the quotes
 // each object in the quotes array should have the following:
     // quote prop
@@ -82,12 +82,8 @@ function printQuote() {
     if (getQuote.tags.length > 0) {
         var getTags = getQuote["tags"];
         tagParagraph.style.display = 'block';
-        if (getQuote.tags) {
-            getTags.forEach(element => {
-                //console.log(element)
-                tagParagraph.innerHTML += `<span class="tag">${element}  </span>`; 
-            });
-        }
+        
+        tagParagraph.innerHTML = `<span class="tag">tags:  ${getTags.join(', ')} </span>`; 
            
     } 
 
