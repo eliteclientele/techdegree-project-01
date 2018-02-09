@@ -77,10 +77,13 @@ body {
 #loadQuote:focus {
   outline: none;
 }
-.tag {
+.tags {
   text-align: center;
   padding: 5px;
-  background: rgba(255,255,255,.25)
+}
+.tag {
+  background: rgba(255,255,255,.25);
+  padding: 5px;
 }
 
 @media (max-width: 420px) {

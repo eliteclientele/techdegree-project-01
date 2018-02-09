@@ -75,15 +75,20 @@ function printQuote() {
         sourceParagraph.innerHTML += `<span class="year"> ${getQuote.year}</span>`;
     }
 
-    var quoteBox = document.getElementById('quote-box');
-    var tagDiv = document.createElement('div');
-    quoteBox.appendChild(tagDiv);
+    
+    var tagParagraph = document.querySelector('.tags');
+    tagParagraph.style.display = 'none';
+    
     if (getQuote.tags.length > 0) {
         var getTags = getQuote["tags"];
-        for (var val in getTags) {
-            tagDiv.innerHTML += `<span class="tag">${getTags[val]} </span>`;
+        tagParagraph.style.display = 'block';
+        if (getQuote.tags) {
+            getTags.forEach(element => {
+                //console.log(element)
+                tagParagraph.innerHTML += `<span class="tag">${element}  </span>`; 
+            });
         }
-            
+           
     } 
 
     
